@@ -1,0 +1,850 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+StorySpring - Stories for Little Explorers
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<!-- ==========================================
+     HERO SECTION
+=========================================== -->
+
+<section class="hero-section">
+
+
+    <!-- Decorative cactus -->
+
+    <div class="hero-cactus cactus-left">
+        🌵
+    </div>
+
+    <div class="hero-cactus cactus-right">
+        🌵
+    </div>
+
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+
+            <!-- Hero Text -->
+
+            <div class="col-lg-7">
+
+                <div class="hero-content">
+
+
+                    <div class="welcome-badge">
+
+                        🌵 WELCOME TO STORYSPRING
+
+                    </div>
+
+
+
+                    <h1>
+
+                        Where Every Road
+
+                        <span>
+                            Leads to a Story
+                        </span>
+
+                    </h1>
+
+
+
+                    <p>
+
+                        Come explore a little town filled with
+                        magical adventures, funny friends and
+                        wonderful stories waiting to be discovered.
+
+                    </p>
+
+
+
+                    <div class="hero-buttons">
+
+
+                        <a
+                            href="#latest-stories"
+                            class="btn hero-primary">
+
+                            <i class="bi bi-book-fill"></i>
+
+                            Explore Stories
+
+                        </a>
+
+
+
+                        <a
+                            href="#story-search"
+                            class="btn hero-secondary">
+
+                            <i class="bi bi-search"></i>
+
+                            Find a Story
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Town Illustration -->
+
+            <div class="col-lg-5">
+
+                <div class="town-scene">
+
+
+                    <div class="sun">
+                        ☀️
+                    </div>
+
+
+                    <div class="mountains">
+                        🏔️
+                    </div>
+
+
+                    <div class="town-building building-one">
+                        🏠
+                    </div>
+
+
+                    <div class="town-building building-two">
+                        🏡
+                    </div>
+
+
+                    <div class="cactus-scene">
+                        🌵
+                    </div>
+
+
+                    <div class="road">
+                        🛣️
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     STORY SEARCH
+=========================================== -->
+
+<section
+    class="search-section"
+    id="story-search">
+
+
+    <div class="container">
+
+
+        <div class="search-box">
+
+
+            <div class="search-icon">
+
+                🔎
+
+            </div>
+
+
+
+            <div class="search-content">
+
+
+                <h2>
+
+                    Find Your Next Adventure
+
+                </h2>
+
+
+
+                <p>
+
+                    Search StorySpring and discover a story
+                    that's perfect for you!
+
+                </p>
+
+
+
+                <form
+                    action="/search"
+                    method="GET">
+
+
+                    <div class="search-input-wrapper">
+
+
+                        <input
+                            type="text"
+                            name="q"
+                            placeholder="Search for a story..."
+                            autocomplete="off"
+                            required>
+
+
+                        <button type="submit">
+
+                            <i class="bi bi-search"></i>
+
+                            Search
+
+                        </button>
+
+
+                    </div>
+
+
+                </form>
+
+
+
+                <!-- Popular Categories -->
+
+                <div class="popular-searches">
+
+
+                    <span>
+                        Try:
+                    </span>
+
+
+
+                    <a href="/search?q=Animals">
+                        🐻 Animals
+                    </a>
+
+
+
+                    <a href="/search?q=Magic">
+                        🪄 Magic
+                    </a>
+
+
+
+                    <a href="/search?q=Adventure">
+                        🚀 Adventure
+                    </a>
+
+
+
+                    <a href="/search?q=Friendship">
+                        ❤️ Friendship
+                    </a>
+
+
+
+                    <a href="/search?q=Bedtime">
+                        🌙 Bedtime
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     STORY OF THE DAY
+=========================================== -->
+
+<section class="story-day-section">
+
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+
+            <span>
+                ⭐ TODAY'S ADVENTURE
+            </span>
+
+
+            <h2>
+                Story of the Day
+            </h2>
+
+
+            <p>
+                A special story picked just for you!
+            </p>
+
+
+        </div>
+
+
+
+        <div class="story-day-card">
+
+
+            <div class="row align-items-center">
+
+
+                <!-- Story Image -->
+
+                <div class="col-md-5">
+
+                    <div class="featured-story-image">
+
+                        <div class="story-image-placeholder">
+
+                            🦊
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Story Details -->
+
+                <div class="col-md-7">
+
+                    <div class="featured-story-content">
+
+
+                        <span class="story-category">
+
+                            🐾 ANIMAL ADVENTURE
+
+                        </span>
+
+
+
+                        <h3>
+
+                            The Little Fox
+
+                        </h3>
+
+
+
+                        <p>
+
+                            Follow a curious little fox as he
+                            leaves his forest home and discovers
+                            a wonderful secret hidden beyond
+                            the mountains.
+
+                        </p>
+
+
+
+                        <div class="story-info">
+
+
+                            <span>
+                                👧 Ages 6–8
+                            </span>
+
+
+                            <span>
+                                ⏱️ 5 min
+                            </span>
+
+
+                            <span>
+                                🔊 Listen Available
+                            </span>
+
+
+                        </div>
+
+
+
+                        <div class="story-actions">
+
+
+                            <a
+                                href="/story"
+                                class="btn read-button">
+
+                                <i class="bi bi-book-fill"></i>
+
+                                Read Story
+
+                            </a>
+
+
+
+                            <a
+                                href="/story"
+                                class="btn listen-button">
+
+                                <i class="bi bi-volume-up-fill"></i>
+
+                                Listen
+
+                            </a>
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     EXPLORE STORY TOWN
+=========================================== -->
+
+<section class="categories-section" id="categories">
+
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+
+            <span>
+                🗺️ EXPLORE THE TOWN
+            </span>
+
+
+            <h2>
+                Choose Your Adventure
+            </h2>
+
+
+            <p>
+                What kind of story would you like today?
+            </p>
+
+
+        </div>
+
+
+
+        <div class="row g-4">
+
+
+            <!-- Animals -->
+
+            <div class="col-6 col-md-4 col-lg-2">
+
+                <a
+                    href="/search?q=Animals"
+                    class="category-card">
+
+
+                    <div class="category-icon">
+                        🐻
+                    </div>
+
+
+                    <h4>
+                        Animals
+                    </h4>
+
+
+                </a>
+
+            </div>
+
+
+
+            <!-- Magic -->
+
+            <div class="col-6 col-md-4 col-lg-2">
+
+                <a
+                    href="/search?q=Magic"
+                    class="category-card">
+
+
+                    <div class="category-icon">
+                        🪄
+                    </div>
+
+
+                    <h4>
+                        Magic
+                    </h4>
+
+
+                </a>
+
+            </div>
+
+
+
+            <!-- Adventure -->
+
+            <div class="col-6 col-md-4 col-lg-2">
+
+                <a
+                    href="/search?q=Adventure"
+                    class="category-card">
+
+
+                    <div class="category-icon">
+                        🚀
+                    </div>
+
+
+                    <h4>
+                        Adventure
+                    </h4>
+
+
+                </a>
+
+            </div>
+
+
+
+            <!-- Friendship -->
+
+            <div class="col-6 col-md-4 col-lg-2">
+
+                <a
+                    href="/search?q=Friendship"
+                    class="category-card">
+
+
+                    <div class="category-icon">
+                        ❤️
+                    </div>
+
+
+                    <h4>
+                        Friendship
+                    </h4>
+
+
+                </a>
+
+            </div>
+
+
+
+            <!-- Nature -->
+
+            <div class="col-6 col-md-4 col-lg-2">
+
+                <a
+                    href="/search?q=Nature"
+                    class="category-card">
+
+
+                    <div class="category-icon">
+                        🌳
+                    </div>
+
+
+                    <h4>
+                        Nature
+                    </h4>
+
+
+                </a>
+
+            </div>
+
+
+
+            <!-- Bedtime -->
+
+            <div class="col-6 col-md-4 col-lg-2">
+
+                <a
+                    href="/search?q=Bedtime"
+                    class="category-card">
+
+
+                    <div class="category-icon">
+                        🌙
+                    </div>
+
+
+                    <h4>
+                        Bedtime
+                    </h4>
+
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     HOW STORYSPRING WORKS
+=========================================== -->
+
+<section class="how-section">
+
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+
+            <span>
+                ✨ STORYSPRING IS EASY
+            </span>
+
+
+            <h2>
+                Pick a Story & Start Exploring
+            </h2>
+
+
+        </div>
+
+
+
+        <div class="row g-4">
+
+
+            <!-- Step 1 -->
+
+            <div class="col-md-4">
+
+                <div class="how-card">
+
+
+                    <div class="how-number">
+                        1
+                    </div>
+
+
+                    <div class="how-icon">
+                        🔎
+                    </div>
+
+
+                    <h3>
+                        Find a Story
+                    </h3>
+
+
+                    <p>
+
+                        Browse the town or search for
+                        a story you would like to read.
+
+                    </p>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Step 2 -->
+
+            <div class="col-md-4">
+
+                <div class="how-card">
+
+
+                    <div class="how-number">
+                        2
+                    </div>
+
+
+                    <div class="how-icon">
+                        📖
+                    </div>
+
+
+                    <h3>
+                        Read
+                    </h3>
+
+
+                    <p>
+
+                        Open a story and enjoy the
+                        adventure at your own pace.
+
+                    </p>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Step 3 -->
+
+            <div class="col-md-4">
+
+                <div class="how-card">
+
+
+                    <div class="how-number">
+                        3
+                    </div>
+
+
+                    <div class="how-icon">
+                        🔊
+                    </div>
+
+
+                    <h3>
+                        Listen
+                    </h3>
+
+
+                    <p>
+
+                        Prefer listening? Turn on the
+                        audio and enjoy the story.
+
+                    </p>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     LATEST STORIES
+=========================================== -->
+
+<section
+    class="latest-stories-section"
+    id="latest-stories">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                📚 FROM STORYSPRING
+            </span>
+
+            <h2>
+                Latest Stories
+            </h2>
+
+            <p>
+                New adventures have arrived in town!
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            {% for story in stories %}
+
+                {% include "_story_card.html" %}
+
+            {% endfor %}
+
+        </div>
+
+
+        {% if not stories %}
+
+            <div class="text-center">
+
+                <p>
+                    No stories are available yet.
+                </p>
+
+            </div>
+
+        {% endif %}
+
+
+        <div class="text-center mt-5">
+
+            <a
+                href="/search"
+                class="view-all-stories">
+
+                View All Stories
+
+                <i class="bi bi-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+{% endblock %}

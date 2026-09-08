@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+
+{% block title %}About StorySpring{% endblock %}
+
+{% block content %}
+
+<section class="about-hero">
+    <div class="about-hero-content">
+
+        <div class="about-icon">
+            🌵📖
+        </div>
+
+        <h1>About StorySpring</h1>
+
+        <p>
+            A little place where stories come to life,
+            imagination takes the road, and every child
+            can discover a new adventure.
+        </p>
+
+    </div>
+</section>
+
+
+<section class="about-section">
+
+    <div class="about-container">
+
+        <div class="about-card">
+
+            <div class="about-card-icon">
+                📚
+            </div>
+
+            <h2>What is StorySpring?</h2>
+
+            <p>
+                StorySpring is a child-friendly digital storytelling
+                platform designed to make reading stories simple,
+                enjoyable, and accessible.
+            </p>
+
+            <p>
+                Children can explore different categories of stories,
+                read them online, or listen to them using the built-in
+                text-to-speech feature.
+            </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <div class="about-card-icon">
+                🌟
+            </div>
+
+            <h2>Our Purpose</h2>
+
+            <p>
+                The purpose of StorySpring is to encourage children
+                to develop a love for reading and storytelling through
+                a simple and interactive website.
+            </p>
+
+            <p>
+                We believe that stories can help children explore
+                creativity, imagination, values, and new ideas in
+                an enjoyable way.
+            </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <div class="about-card-icon">
+                🔊
+            </div>
+
+            <h2>Read & Listen</h2>
+
+            <p>
+                StorySpring includes a built-in listening feature
+                that uses browser text-to-speech technology.
+            </p>
+
+            <p>
+                This allows children to listen to stories while
+                following along with the text, making the experience
+                more accessible and engaging.
+            </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <div class="about-card-icon">
+                ✍️
+            </div>
+
+            <h2>For Story Creators</h2>
+
+            <p>
+                StorySpring also gives creators a place to share
+                their own stories.
+            </p>
+
+            <p>
+                Creators can submit stories through their account.
+                New stories are reviewed by the administrator before
+                they become available to readers.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="about-values">
+
+    <div class="about-values-container">
+
+        <h2>Why StorySpring?</h2>
+
+        <p class="about-values-intro">
+            StorySpring is built around a few simple ideas:
+        </p>
+
+        <div class="values-grid">
+
+            <div class="value-item">
+                <span>📖</span>
+                <h3>Simple</h3>
+                <p>
+                    An easy-to-use interface that children can
+                    understand and navigate.
+                </p>
+            </div>
+
+            <div class="value-item">
+                <span>🎨</span>
+                <h3>Creative</h3>
+                <p>
+                    A place where imagination and storytelling
+                    can grow.
+                </p>
+            </div>
+
+            <div class="value-item">
+                <span>🔊</span>
+                <h3>Accessible</h3>
+                <p>
+                    Stories can be read or listened to using
+                    built-in browser features.
+                </p>
+            </div>
+
+            <div class="value-item">
+                <span>🛡️</span>
+                <h3>Safe</h3>
+                <p>
+                    Creator-submitted stories go through an
+                    approval process before publication.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="about-journey">
+
+    <div class="about-journey-content">
+
+        <div class="road-icon">
+            🛣️
+        </div>
+
+        <h2>Every Story Is a Journey</h2>
+
+        <p>
+            From the first page to the final chapter, every story
+            takes us somewhere new.
+        </p>
+
+        <p>
+            So pick a story, start your journey, and let your
+            imagination take the wheel.
+        </p>
+
+        <a href="{{ url_for('home') }}" class="about-home-button">
+            <i class="bi bi-house-fill"></i>
+            Explore Stories
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

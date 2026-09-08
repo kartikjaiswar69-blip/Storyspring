@@ -1,0 +1,215 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+Creator Sign Up - StorySpring
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<section class="creator-login-section">
+
+    <div class="container">
+
+        <div class="creator-login-card">
+
+
+            <!-- Icon -->
+
+            <div class="creator-login-icon">
+
+                🌵
+
+            </div>
+
+
+            <!-- Heading -->
+
+            <div class="creator-login-heading">
+
+                <span>
+                    ✨ JOIN STORYSPRING
+                </span>
+
+                <h1>
+                    Become a Creator
+                </h1>
+
+                <p>
+                    Create your account and start sharing
+                    your own stories with young readers.
+                </p>
+
+            </div>
+
+
+
+            <!-- Signup Form -->
+
+            <form
+                method="POST"
+                action="{{ url_for('creator_signup') }}">
+
+
+                <!-- Username -->
+
+                <div class="story-form-group">
+
+                    <label for="username">
+
+                        <i class="bi bi-person-fill"></i>
+
+                        Username
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Choose a username"
+                        minlength="3"
+                        maxlength="30"
+                        autocomplete="username"
+                        required>
+
+                </div>
+
+
+
+                <!-- Password -->
+
+                <div class="story-form-group">
+
+                    <label for="password">
+
+                        <i class="bi bi-lock-fill"></i>
+
+                        Password
+
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Create a password"
+                        minlength="6"
+                        autocomplete="new-password"
+                        required>
+
+                </div>
+
+
+
+                <!-- Confirm Password -->
+
+                <div class="story-form-group">
+
+                    <label for="confirm_password">
+
+                        <i class="bi bi-shield-lock-fill"></i>
+
+                        Confirm Password
+
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirm_password"
+                        name="confirm_password"
+                        placeholder="Enter your password again"
+                        minlength="6"
+                        autocomplete="new-password"
+                        required>
+
+                </div>
+
+
+
+                <!-- Password Info -->
+
+                <div class="tts-info-box">
+
+                    <i class="bi bi-info-circle-fill"></i>
+
+                    <div>
+
+                        <strong>
+                            Password requirement
+                        </strong>
+
+                        <p>
+                            Your password must contain at least
+                            6 characters.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Signup Button -->
+
+                <button
+                    type="submit"
+                    class="creator-login-button">
+
+                    <i class="bi bi-person-plus-fill"></i>
+
+                    Create Creator Account
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- Login Link -->
+
+            <div class="creator-login-footer">
+
+                <p>
+                    Already have a creator account?
+                </p>
+
+                <a href="{{ url_for('creator_login') }}">
+
+                    Login here
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- Back -->
+
+            <div class="creator-login-back">
+
+                <a href="{{ url_for('home') }}">
+
+                    <i class="bi bi-arrow-left"></i>
+
+                    Back to StorySpring
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

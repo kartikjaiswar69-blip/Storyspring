@@ -1,1 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}StorySpring{% endblock %}</title>
+
+
+    <!-- Bootstrap CSS -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+
+    <!-- Bootstrap Icons -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <!-- StorySpring CSS -->
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         NAVBAR
+    ====================================== -->
+
+    <nav class="navbar navbar-expand-lg story-navbar">
+
+        <div class="container">
+
+
+            <!-- Logo -->
+
+            <a class="navbar-brand story-logo" href="/">
+
+                <span class="logo-icon">
+                    🌵
+                </span>
+
+                <span>
+                    StorySpring
+                </span>
+
+            </a>
+
+
+
+            <!-- Mobile Menu Button -->
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#storyNavbar"
+                aria-controls="storyNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+                <i class="bi bi-list"></i>
+
+            </button>
+
+
+
+            <!-- Navbar Content -->
+
+            <div
+                class="collapse navbar-collapse"
+                id="storyNavbar">
+
+
+                <!-- Main Navigation -->
+
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+
+
+                    <!-- Home -->
+
+                    <li class="nav-item">
+
+                        <a
+                            class="nav-link"
+                            href="/">
+
+                            <i class="bi bi-house-fill"></i>
+
+                            Home
+
+                        </a>
+
+                    </li>
+
+
+
+                    <!-- Stories -->
+
+                    <li class="nav-item">
+
+                        <a
+                            class="nav-link"
+                            href="{{ url_for('home') }}#latest-stories">
+
+                            <i class="bi bi-book-fill"></i>
+
+                            Stories
+
+                        </a>
+
+                    </li>
+
+
+
+                    <!-- Categories -->
+
+                    <li class="nav-item">
+
+                        <a
+                            class="nav-link"
+                            href="{{ url_for('home') }}#categories">
+
+                            <i class="bi bi-stars"></i>
+
+                            Categories
+
+                        </a>
+
+                    </li>
+
+
+
+                    <!-- About -->
+
+                    <li class="nav-item">
+
+                        <a
+                            class="nav-link"
+                            href="{{ url_for('about') }}">
+
+                            <i class="bi bi-info-circle-fill"></i>
+
+                            About
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+
+
+                <!-- Right Side -->
+
+                <div class="navbar-actions">
+
+
+                    <!-- Search -->
+
+                    <a
+                        href="/search"
+                        class="search-button">
+
+                        <i class="bi bi-search"></i>
+
+                        <span>
+                            Search
+                        </span>
+
+                    </a>
+
+
+
+                    <!-- Creator Login -->
+
+
+{% if session.get("user_id") and session.get("role") == "creator" %}
+
+    <!-- Creator is logged in -->
+
+    <a
+        href="{{ url_for('creator_dashboard') }}"
+        class="creator-login">
+
+        <i class="bi bi-speedometer2"></i>
+
+        Creator Dashboard
+
+    </a>
+
+
+    <a
+        href="{{ url_for('creator_logout') }}"
+        class="creator-login">
+
+        <i class="bi bi-box-arrow-right"></i>
+
+        Logout
+
+    </a>
+
+
+{% elif session.get("user_id") and session.get("role") == "admin" %}
+
+    <!-- Admin is logged in -->
+
+    <a
+        href="{{ url_for('admin_dashboard') }}"
+        class="creator-login">
+
+        <i class="bi bi-speedometer2"></i>
+
+        Admin Dashboard
+
+    </a>
+
+
+    <a
+        href="{{ url_for('admin_logout') }}"
+        class="creator-login">
+
+        <i class="bi bi-box-arrow-right"></i>
+
+        Logout
+
+    </a>
+
+
+{% else %}
+
+    <!-- Nobody is logged in -->
+
+    <a
+        href="{{ url_for('creator_login') }}"
+        class="creator-login">
+
+        <i class="bi bi-person-fill"></i>
+
+        Creator Login
+
+    </a>
+
+{% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================
+         MAIN CONTENT
+    ====================================== -->
+
+    <main>
+
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+
+
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
+    <footer class="story-footer">
+
+        <p>
+            <strong>StorySpring</strong>
+        </p>
+        <p>
+            Take the road. Find a story. Start an adventure.
+        </p>
+        
+        <p>
+            by Jaistik · &copy; 2026
+        </p>
+
+    <a href="{{ url_for('admin_login') }}" class="admin-footer-link">
+        <i class="bi bi-shield-lock-fill"></i>
+        Admin
+    </a>
+
+</footer>
+
+
+
+    <!-- Bootstrap JS -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
+
+    <!-- StorySpring JS -->
+
+    <script
+        src="{{ url_for('static', filename='js/main.js') }}">
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,261 @@
+{% extends "base.html" %}
+
+{% block title %}{{ story.title }} - StorySpring{% endblock %}
+
+{% block content %}
+
+<section class="story-reading-section">
+
+    <div class="container">
+
+        <!-- Back Button -->
+        <div class="story-back">
+            <a href="/" class="back-button">
+                <i class="bi bi-arrow-left"></i>
+                Back to Stories
+            </a>
+        </div>
+
+
+        <!-- Story Header -->
+        <div class="story-reading-header">
+
+            <!-- Cover Image -->
+            <div class="story-reading-image">
+
+                {% if story.cover_image %}
+
+                    <img
+                        src="{{ url_for('static', filename='images/stories/' + story.cover_image) }}"
+                        alt="{{ story.title }}">
+
+                {% else %}
+
+                    <div class="reading-image-placeholder">
+                        📖
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- Story Information -->
+            <div class="story-reading-info">
+
+                <span class="reading-category">
+                    {{ story.category }}
+                </span>
+
+                <h1>{{ story.title }}</h1>
+
+                <p class="reading-description">
+                    {{ story.description }}
+                </p>
+
+                <div class="reading-details">
+
+                    <span>
+                        <i class="bi bi-person-fill"></i>
+                        {{ story.creator }}
+                    </span>
+
+                    <span>
+                        <i class="bi bi-people-fill"></i>
+                        {{ story.age_group }}
+                    </span>
+
+                    <span>
+                        <i class="bi bi-headphones"></i>
+                        Listen Available
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================
+             TEXT TO SPEECH PLAYER
+        ====================================== -->
+
+        <div class="story-audio-box">
+
+            <div class="audio-player-header">
+
+                <div class="audio-icon">
+                    <i class="bi bi-volume-up-fill"></i>
+                </div>
+
+                <div>
+                    <h3>Listen to the Story</h3>
+
+                    <p>
+                        Let StorySpring read this story aloud.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Speech Status -->
+            <div id="speechStatus" class="speech-status">
+                Ready to read
+            </div>
+
+
+            <!-- Controls -->
+            <div class="speech-controls">
+
+                <button
+                    type="button"
+                    id="playSpeech"
+                    class="speech-button speech-play">
+
+                    <i class="bi bi-play-fill"></i>
+                    Listen
+
+                </button>
+
+
+                <button
+                    type="button"
+                    id="pauseSpeech"
+                    class="speech-button speech-pause">
+
+                    <i class="bi bi-pause-fill"></i>
+                    Pause
+
+                </button>
+
+
+                <button
+                    type="button"
+                    id="stopSpeech"
+                    class="speech-button speech-stop">
+
+                    <i class="bi bi-stop-fill"></i>
+                    Stop
+
+                </button>
+
+            </div>
+
+
+            <!-- Speech Settings -->
+            <div class="speech-settings">
+
+                <!-- Speed -->
+                <div class="speech-setting">
+
+                    <label for="speechRate">
+                        <i class="bi bi-speedometer2"></i>
+                        Reading Speed
+                    </label>
+
+                    <select id="speechRate">
+
+                        <option value="0.75">
+                            Slow
+                        </option>
+
+                        <option value="1" selected>
+                            Normal
+                        </option>
+
+                        <option value="1.25">
+                            Fast
+                        </option>
+
+                        <option value="1.5">
+                            Very Fast
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Voice -->
+                <div class="speech-setting">
+
+                    <label for="speechVoice">
+                        <i class="bi bi-person-voice"></i>
+                        Voice
+                    </label>
+
+                    <select id="speechVoice">
+
+                        <option value="">
+                            Default Voice
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- Browser Support Message -->
+            <div
+                id="speechUnsupported"
+                class="speech-unsupported"
+                style="display: none;">
+
+                <i class="bi bi-exclamation-circle"></i>
+
+                Text-to-Speech is not supported by this browser.
+                Please try a modern browser such as Chrome or Edge.
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================
+             STORY CONTENT
+        ====================================== -->
+
+        <article
+            id="storyContent"
+            class="story-content">
+
+            <div class="story-content-decoration">
+                🌵
+            </div>
+
+            {{ story.content | safe }}
+
+        </article>
+
+
+        <!-- Bottom Navigation -->
+        <div class="story-bottom-navigation">
+
+            <a href="/" class="story-navigation-button">
+
+                <i class="bi bi-house-fill"></i>
+                StorySpring Home
+
+            </a>
+
+            <a href="#" class="story-navigation-button">
+
+                <i class="bi bi-book-fill"></i>
+                More Stories
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+{% endblock %}

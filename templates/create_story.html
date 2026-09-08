@@ -1,0 +1,340 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+Create Story - StorySpring
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<section class="create-story-section">
+
+    <div class="container">
+
+
+        <!-- Page Heading -->
+
+        <div class="create-story-heading">
+
+            <span>
+                ✨ STORYSPRING CREATOR
+            </span>
+
+            <h1>
+                Create a New Story
+            </h1>
+
+            <p>
+                Write a wonderful adventure for young readers.
+            </p>
+
+        </div>
+
+
+
+        <!-- Flash Messages -->
+
+        {% with messages = get_flashed_messages() %}
+
+            {% if messages %}
+
+                {% for message in messages %}
+
+                    <div class="create-story-message">
+
+                        <i class="bi bi-exclamation-circle"></i>
+
+                        {{ message }}
+
+                    </div>
+
+                {% endfor %}
+
+            {% endif %}
+
+        {% endwith %}
+
+
+
+        <!-- Story Form -->
+
+        <div class="create-story-form-card">
+
+
+            <form
+                method="POST"
+                action="{{ url_for('create_story') }}">
+
+
+                <!-- Story Title -->
+
+                <div class="story-form-group">
+
+                    <label for="title">
+
+                        <i class="bi bi-book"></i>
+
+                        Story Title
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="title"
+                        name="title"
+                        placeholder="Enter your story title..."
+                        maxlength="150"
+                        required>
+
+                </div>
+
+
+
+                <!-- Description -->
+
+                <div class="story-form-group">
+
+                    <label for="description">
+
+                        <i class="bi bi-card-text"></i>
+
+                        Short Description
+
+                    </label>
+
+
+                    <textarea
+                        id="description"
+                        name="description"
+                        rows="3"
+                        maxlength="300"
+                        placeholder="Give readers a short idea about your story..."
+                        required></textarea>
+
+                </div>
+
+
+
+                <!-- Category + Age -->
+
+                <div class="row">
+
+
+                    <!-- Category -->
+
+                    <div class="col-md-6">
+
+                        <div class="story-form-group">
+
+                            <label for="category">
+
+                                <i class="bi bi-tags-fill"></i>
+
+                                Category
+
+                            </label>
+
+
+                            <select
+                                id="category"
+                                name="category"
+                                required>
+
+                                <option value="">
+                                    Choose a category
+                                </option>
+
+                                <option value="Animals">
+                                    🐻 Animals
+                                </option>
+
+                                <option value="Magic">
+                                    🪄 Magic
+                                </option>
+
+                                <option value="Adventure">
+                                    🚀 Adventure
+                                </option>
+
+                                <option value="Friendship">
+                                    ❤️ Friendship
+                                </option>
+
+                                <option value="Nature">
+                                    🌳 Nature
+                                </option>
+
+                                <option value="Bedtime">
+                                    🌙 Bedtime
+                                </option>
+
+                                <option value="Fantasy">
+                                    🐉 Fantasy
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Age Group -->
+
+                    <div class="col-md-6">
+
+                        <div class="story-form-group">
+
+                            <label for="age_group">
+
+                                <i class="bi bi-people-fill"></i>
+
+                                Age Group
+
+                            </label>
+
+
+                            <select
+                                id="age_group"
+                                name="age_group"
+                                required>
+
+                                <option value="">
+                                    Choose an age group
+                                </option>
+
+                                <option value="3–5 Years">
+                                    3–5 Years
+                                </option>
+
+                                <option value="6–8 Years">
+                                    6–8 Years
+                                </option>
+
+                                <option value="7–10 Years">
+                                    7–10 Years
+                                </option>
+
+                                <option value="8–12 Years">
+                                    8–12 Years
+                                </option>
+
+                                <option value="10–12 Years">
+                                    10–12 Years
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Story Content -->
+
+                <div class="story-form-group">
+
+                    <label for="content">
+
+                        <i class="bi bi-pencil-fill"></i>
+
+                        Your Story
+
+                    </label>
+
+
+                    <p class="story-form-help">
+
+                        Write your story below.
+                        Separate paragraphs with blank lines.
+
+                    </p>
+
+
+                    <textarea
+                        id="content"
+                        name="content"
+                        rows="16"
+                        placeholder="Once upon a time..."
+                        required></textarea>
+
+                </div>
+
+
+
+                <!-- TTS Information -->
+
+                <div class="tts-info-box">
+
+                    <div class="tts-info-icon">
+                        🔊
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            No Audio Upload Needed
+                        </h3>
+
+                        <p>
+                            StorySpring automatically reads your
+                            story aloud using Text-to-Speech.
+                            Readers can listen directly from
+                            the story page.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Buttons -->
+
+                <div class="story-form-actions">
+
+
+                    <a
+                        href="{{ url_for('creator_dashboard') }}"
+                        class="cancel-story-button">
+
+                        <i class="bi bi-arrow-left"></i>
+
+                        Cancel
+
+                    </a>
+
+
+                    <button
+                        type="submit"
+                        class="publish-story-button">
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        Publish Story
+
+                    </button>
+
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,376 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+Admin Dashboard - StorySpring
+
+{% endblock %}
+
+
+{% block content %}
+
+<section class="admin-dashboard-section">
+
+    <div class="container">
+
+
+        <!-- Header -->
+
+        <div class="admin-dashboard-header">
+
+            <div>
+
+                <span>
+                    🛡️ STORYSPRING ADMIN
+                </span>
+
+                <h1>
+                    Admin Dashboard
+                </h1>
+
+                <p>
+                    Welcome back, {{ session["username"] }}!
+                    Manage stories and creators from here.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Statistics -->
+
+        <div class="row g-4 mb-5">
+
+
+            <div class="col-md-3">
+
+                <div class="admin-stat-card">
+
+                    <div class="admin-stat-icon">
+                        📚
+                    </div>
+
+                    <h3>
+                        {{ total_stories }}
+                    </h3>
+
+                    <p>
+                        Total Stories
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <div class="admin-stat-card pending-stat">
+
+                    <div class="admin-stat-icon">
+                        ⏳
+                    </div>
+
+                    <h3>
+                        {{ pending_stories }}
+                    </h3>
+
+                    <p>
+                        Pending
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <div class="admin-stat-card published-stat">
+
+                    <div class="admin-stat-icon">
+                        ✅
+                    </div>
+
+                    <h3>
+                        {{ published_stories }}
+                    </h3>
+
+                    <p>
+                        Published
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <div class="admin-stat-card creator-stat">
+
+                    <div class="admin-stat-icon">
+                        ✍️
+                    </div>
+
+                    <h3>
+                        {{ creators }}
+                    </h3>
+
+                    <p>
+                        Creators
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Stories -->
+
+        <div class="admin-stories-card">
+
+            <div class="admin-section-title">
+
+                <div>
+
+                    <span>
+                        📋 STORY MANAGEMENT
+                    </span>
+
+                    <h2>
+                        Submitted Stories
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            {% if stories %}
+
+                <div class="table-responsive">
+
+                    <table class="table admin-story-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Story
+                                </th>
+
+                                <th>
+                                    Creator
+                                </th>
+
+                                <th>
+                                    Category
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Actions
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            {% for story in stories %}
+
+                            <tr>
+
+                                <td>
+
+                                    <strong>
+                                        {{ story.title }}
+                                    </strong>
+
+                                    <small>
+                                        {{ story.description }}
+                                    </small>
+
+                                </td>
+
+
+                                <td>
+
+                                    👤 {{ story.creator }}
+
+                                </td>
+
+
+                                <td>
+
+                                    {{ story.category }}
+
+                                </td>
+
+
+                                <td>
+
+                                    {% if story.status == "published" %}
+
+                                        <span class="admin-status published">
+                                            ✅ Published
+                                        </span>
+
+                                    {% elif story.status == "pending" %}
+
+                                        <span class="admin-status pending">
+                                            ⏳ Pending
+                                        </span>
+
+                                    {% else %}
+
+                                        <span class="admin-status rejected">
+                                            ❌ Rejected
+                                        </span>
+
+                                    {% endif %}
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="admin-actions">
+
+
+                                        <!-- APPROVE / REJECT -->
+
+                                        {% if story.status == "pending" %}
+
+                                            <form
+                                                method="POST"
+                                                action="{{ url_for('approve_story', story_id=story.id) }}">
+
+                                                <button
+                                                    type="submit"
+                                                    class="admin-approve-button">
+
+                                                    <i class="bi bi-check-lg"></i>
+
+                                                    Approve
+
+                                                </button>
+
+                                            </form>
+
+
+                                            <form
+                                                method="POST"
+                                                action="{{ url_for('reject_story', story_id=story.id) }}">
+
+                                                <button
+                                                    type="submit"
+                                                    class="admin-reject-button">
+
+                                                    <i class="bi bi-x-lg"></i>
+
+                                                    Reject
+
+                                                </button>
+
+                                            </form>
+
+                                        {% endif %}
+
+
+
+                                        <!-- VIEW PUBLISHED STORY -->
+
+                                        {% if story.status == "published" %}
+
+                                            <a
+                                                href="{{ url_for('story', story_id=story.id) }}"
+                                                class="admin-view-button">
+
+                                                <i class="bi bi-book"></i>
+
+                                                View
+
+                                            </a>
+
+                                        {% endif %}
+
+
+
+                                        <!-- DELETE STORY -->
+
+                                        <form
+                                            method="POST"
+                                            action="{{ url_for('admin_delete_story', story_id=story.id) }}"
+                                            style="display: inline;"
+                                            onsubmit="return confirm('Are you sure you want to permanently delete this story?');">
+
+                                            <button
+                                                type="submit"
+                                                class="admin-delete-button">
+
+                                                <i class="bi bi-trash-fill"></i>
+
+                                                Delete
+
+                                            </button>
+
+                                        </form>
+
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            {% else %}
+
+                <div class="admin-empty-state">
+
+                    <div>
+                        📚
+                    </div>
+
+                    <h3>
+                        No Stories Yet
+                    </h3>
+
+                    <p>
+                        Stories submitted by creators will
+                        appear here.
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+

@@ -1,0 +1,102 @@
+<div class="col-sm-6 col-lg-4">
+
+    <div class="story-card">
+
+
+        <!-- Story Image -->
+
+        <div class="story-card-image">
+
+            {% if story.cover_image %}
+
+                <img
+                    src="{{ url_for(
+                        'static',
+                        filename='images/stories/' + story.cover_image
+                    ) }}"
+                    alt="{{ story.title }}">
+
+            {% else %}
+
+                <div class="story-placeholder">
+                    📖
+                </div>
+
+            {% endif %}
+
+
+            <span class="story-card-category">
+
+                {{ story.category }}
+
+            </span>
+
+        </div>
+
+
+
+        <!-- Story Information -->
+
+        <div class="story-card-body">
+
+
+            <h3>
+                {{ story.title }}
+            </h3>
+
+
+            <p class="story-card-description">
+
+                {{ story.description }}
+
+            </p>
+
+
+            <div class="story-card-details">
+
+                <span>
+                    👧 {{ story.age_group }}
+                </span>
+
+                <span>
+                    🔊 Listen
+                </span>
+
+            </div>
+
+
+
+            <!-- Buttons -->
+
+            <div class="story-card-actions">
+
+
+                <a
+                    href="{{ url_for('story', story_id=story.id) }}"
+                    class="btn story-read-btn">
+
+                    <i class="bi bi-book-fill"></i>
+
+                    Read
+
+                </a>
+
+
+                <a
+                    href="{{ url_for('story', story_id=story.id) }}"
+                    class="btn story-listen-btn">
+
+                    <i class="bi bi-volume-up-fill"></i>
+
+                    Listen
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>

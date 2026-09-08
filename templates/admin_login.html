@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+Admin Login - StorySpring
+
+{% endblock %}
+
+
+{% block content %}
+
+<section class="creator-login-section">
+
+    <div class="container">
+
+        <div class="creator-login-card">
+
+            <div class="creator-login-icon">
+                🛡️
+            </div>
+
+
+            <div class="creator-login-heading">
+
+                <span>
+                    🌵 STORYSPRING ADMIN
+                </span>
+
+                <h1>
+                    Admin Login
+                </h1>
+
+                <p>
+                    Manage stories and keep StorySpring
+                    safe and wonderful for young readers.
+                </p>
+
+            </div>
+
+
+            <form
+                method="POST"
+                action="{{ url_for('admin_login') }}">
+
+
+                <div class="story-form-group">
+
+                    <label for="username">
+
+                        <i class="bi bi-person-fill"></i>
+
+                        Admin Username
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter admin username"
+                        required>
+
+                </div>
+
+
+                <div class="story-form-group">
+
+                    <label for="password">
+
+                        <i class="bi bi-lock-fill"></i>
+
+                        Password
+
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter admin password"
+                        required>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="creator-login-button">
+
+                    <i class="bi bi-shield-lock-fill"></i>
+
+                    Login as Admin
+
+                </button>
+
+            </form>
+
+
+            <div class="creator-login-back">
+
+                <a href="{{ url_for('home') }}">
+
+                    <i class="bi bi-arrow-left"></i>
+
+                    Back to StorySpring
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

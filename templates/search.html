@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+Search Stories - StorySpring
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<!-- ==========================================
+     SEARCH PAGE
+=========================================== -->
+
+<section class="search-results-section">
+
+    <div class="container">
+
+
+        <!-- Page Heading -->
+
+        <div class="search-page-heading">
+
+            <span>
+                🔎 STORYSPRING SEARCH
+            </span>
+
+            <h1>
+                Find a Story
+            </h1>
+
+            <p>
+                Search through our collection of wonderful adventures.
+            </p>
+
+        </div>
+
+
+
+        <!-- Search Box -->
+
+        <div class="search-results-box">
+
+            <form
+                action="/search"
+                method="GET">
+
+                <div class="search-results-input">
+
+                    <input
+                        type="text"
+                        name="q"
+                        value="{{ query }}"
+                        placeholder="Search for a story..."
+                        autocomplete="off"
+                        autofocus>
+
+                    <button type="submit">
+
+                        <i class="bi bi-search"></i>
+
+                        Search
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+
+        <!-- Results -->
+
+        {% if query %}
+
+            <div class="search-result-heading">
+
+                <h2>
+
+                    Search Results for
+                    <span>"{{ query }}"</span>
+
+                </h2>
+
+                <p>
+
+                    {{ stories|length }}
+                    story{% if stories|length != 1 %}ies{% endif %}
+                    found
+
+                </p>
+
+            </div>
+
+        {% else %}
+
+            <div class="search-result-heading">
+
+                <h2>
+                    All Stories
+                </h2>
+
+                <p>
+                    Explore all the adventures in StorySpring.
+                </p>
+
+            </div>
+
+        {% endif %}
+
+
+
+        <!-- Story Cards -->
+
+        {% if stories %}
+
+            <div class="row g-4">
+
+                {% for story in stories %}
+
+                    {% include "_story_card.html" %}
+
+                {% endfor %}
+
+            </div>
+
+
+        {% else %}
+
+            <!-- No Results -->
+
+            <div class="no-search-results">
+
+                <div class="no-results-icon">
+                    🔍
+                </div>
+
+                <h2>
+                    No Stories Found
+                </h2>
+
+                <p>
+
+                    We couldn't find a story matching
+                    <strong>"{{ query }}"</strong>.
+
+                </p>
+
+                <p>
+                    Try searching for something like
+                    <strong>Animals</strong>,
+                    <strong>Magic</strong>, or
+                    <strong>Adventure</strong>.
+                </p>
+
+
+                <a
+                    href="/search"
+                    class="btn search-all-button">
+
+                    <i class="bi bi-book-fill"></i>
+
+                    Show All Stories
+
+                </a>
+
+            </div>
+
+        {% endif %}
+
+
+    </div>
+
+</section>
+
+
+{% endblock %}
