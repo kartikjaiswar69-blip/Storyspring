@@ -434,93 +434,12 @@ html {
     box-shadow: 10px 12px 0 rgba(74, 44, 32, 0.3);
 }
 
-
-.sun {
-    position: absolute;
-
-    top: 25px;
-    right: 35px;
-
-    font-size: 70px;
-}
-
-
-.mountains {
-    position: absolute;
-
-    top: 100px;
-    left: 0;
-
+.town-background {
     width: 100%;
-
-    font-size: 100px;
-
-    text-align: center;
+    height: 350px;
+    object-fit: cover;
+    display: block;
 }
-
-
-.town-building {
-    position: absolute;
-
-    z-index: 3;
-
-    font-size: 80px;
-
-    bottom: 105px;
-}
-
-
-.building-one {
-    left: 30px;
-}
-
-
-.building-two {
-    right: 30px;
-}
-
-
-.cactus-scene {
-    position: absolute;
-
-    bottom: 100px;
-
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    font-size: 70px;
-
-    z-index: 5;
-}
-
-
-.road {
-    position: absolute;
-
-    bottom: -20px;
-    left: 0;
-
-    width: 100%;
-
-    height: 130px;
-
-    background: #555;
-
-    clip-path: polygon(
-        40% 0,
-        60% 0,
-        100% 100%,
-        0 100%
-    );
-
-    font-size: 45px;
-
-    text-align: center;
-
-    padding-top: 40px;
-}
-
 
 /* ========================================
    DECORATIVE CACTUS
